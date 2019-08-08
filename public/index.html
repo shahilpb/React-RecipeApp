@@ -2,14 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
+
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+<!-- j Query -->
+<script type="text/javascript" src="vendor/jquery.2.2.3.min.js"></script>
+<!-- Bootstrap JS -->
+<script type="text/javascript" src="vendor/bootstrap/bootstrap.min.js"></script>
+  <!-- Theme js -->
+  <script type="text/javascript" src="js/jquery-scrolltofixed.js"></script>
+
+   <!-- responsive style sheet -->
+   <link rel="stylesheet" type="text/css" href="css/responsive.css">
+
+      <!-- bootstrap -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      
+      <!-- Google Font  -->
+      
+      <!-- fontawesome CDN -->
+    <script src="https://kit.fontawesome.com/b03ddfc5bf.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Courgette|Open+Sans&display=swap" rel="stylesheet">
+<!-- Vendor js _________ -->
+<!-- 
+    <link rel="stylesheet" href="vendor/owl-carousel/css/owl.carousel.css" />
+    <link rel="stylesheet" href="vendor/owl-carousel/css/owl.theme.css"/>
+    <link rel="stylesheet" href="vendor/owl-carousel/css/owl.transitions.css"/>
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" /> 
+    <link rel="stylesheet" type="text/css" href="css/responsive.css"/>
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />-->
+
+
+    <!-- responsive style sheet -->
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -20,10 +50,40 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+
+    <script>
+	
+      jQuery(document).ready(function() {
+          jQuery('.navbar').scrollToFixed();
+      });
+      $(window).scroll(function() {    
+          var scroll = $(window).scrollTop();
+          if (scroll >= 0.5) {
+              $(".navbar").addClass("darkHeader");
+          } else {
+              $(".navbar").removeClass("darkHeader");
+          }
+      });
+
+    </script>
+      <script>
+        $(document).ready(function(){
+           $('a[href^="#"]').on('click',function (e) {
+         e.preventDefault();
+         var target = this.hash;
+         var $target = $(target);
+         $('html, body').stop().animate({
+             'scrollTop': $target.offset().top-80
+         }, 900, 'swing', function () {
+         });
+           });
+         });
+     
+           </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root" class="main-page-wrapper home-page-one"></div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
